@@ -1,3 +1,47 @@
+[project]
+name = "ardmediathek"
+version = "1.2.0"
+description = "Client library for the ardmediathek.de API"
+readme = "README.md"
+license = "GPL-3.0-only"
+authors = [
+    { name = "TheFGFSEagle", email = "thefgfseagle@gmail.com" },
+    { name = "nowak-daniel", email = "dev.dn@mailbox.org" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "appdirs>=1.4.4",
+    "bs4>=0.0.2",
+    "lxml>=6.1.1",
+    "natsort>=8.4.0",
+    "pillow>=12.2.0",
+    "plum-dispatch>=2.9.0",
+    "python-dateutil>=2.9.0.post0",
+    "requests>=2.34.2",
+    "requests-cache>=1.3.2",
+    "tqdm>=4.67.3",
+]
+keywords = ["ardmediathek", "api"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Homepage = "https://github.com/TheFGFSEagle/ardmediathek-api"
+BugTracker = "https://github.com/TheFGFSEagle/ardmediathek-api/issues"
+
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ardmediathek*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
