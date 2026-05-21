@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-# coding=utf-8
-# Created by daniel
-# Created at 21.05.26
-
 import ardmediathek
 
 PROGRAM_ID = "Y3JpZDovL25kci5kZS80NQ"

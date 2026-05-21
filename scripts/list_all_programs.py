@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# coding=utf-8
-
 import argparse
 import json
 
@@ -42,7 +39,9 @@ def main() -> None:
         lines = []
         for idx, p in enumerate(programs_sorted, start=1):
             station = p.station.name if p.station else "Unbekannt"
-            lines.append(f"{idx:4d}. {p.title} | Sender: {station} | Broadcasts: {p.num_broadcasts}")
+            lines.append(
+                f"{idx:4d}. {p.title} | Sender: {station} | Broadcasts: {p.num_broadcasts}"
+            )
         content = "\n".join(lines)
 
     if args.output:

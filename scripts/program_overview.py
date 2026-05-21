@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# coding=utf-8
-
 from collections import Counter
 
 import ardmediathek
@@ -28,7 +25,9 @@ def main() -> None:
     programs = ardmediathek.get_programs()
     print(f"Gefundene Sendungen: {len(programs)}")
 
-    station_counter = Counter(p.station.name for p in programs if p.station and p.station.name)
+    station_counter = Counter(
+        p.station.name for p in programs if p.station and p.station.name
+    )
     bucket_counter = Counter(bucket_for_count(p.num_broadcasts or 0) for p in programs)
 
     print("\nTop Sender (nach Anzahl Sendungen):")
@@ -41,9 +40,13 @@ def main() -> None:
         print(f"- {bucket}: {bucket_counter.get(bucket, 0)}")
 
     print("\nBeispielsendungen mit den meisten Broadcasts:")
-    for program in sorted(programs, key=lambda p: p.num_broadcasts or 0, reverse=True)[:TOP_PROGRAMS]:
+    for program in sorted(programs, key=lambda p: p.num_broadcasts or 0, reverse=True)[
+        :TOP_PROGRAMS
+    ]:
         station = program.station.name if program.station else "Unbekannt"
-        print(f"- {program.title} | Sender: {station} | Broadcasts: {program.num_broadcasts}")
+        print(
+            f"- {program.title} | Sender: {station} | Broadcasts: {program.num_broadcasts}"
+        )
 
 
 if __name__ == "__main__":
